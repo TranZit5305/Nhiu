@@ -1,0 +1,18 @@
+body{
+     background-color:  rgb(53, 117, 109);
+     font: 1em sans-serif;
+     color: #efefef;;
+}
+._vdeo {
+  display: flex;
+  flex-direction: column;      /* xếp theo chiều dọc */
+  align-items: center;         /* căn giữa ngang */
+  justify-content: center;     /* căn giữa dọc (nếu cần) */
+  min-height: 360px;
+  width: 640px;
+  margin: 0 auto;              /* căn giữa toàn khối nếu cần */
+  gap: 12px;                   /* khoảng cách giữa video và chữ */
+}
+._main{
+  display: flex;
+}
