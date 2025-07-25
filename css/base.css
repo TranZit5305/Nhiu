@@ -40,7 +40,9 @@ body {
   height: auto;
   aspect-ratio: 16 / 9;
 }
-
+.list_img {
+  flex-direction: column;
+}
 /* MOBILE: stack ảnh xuống dưới và hiển thị lại */
 @media screen and (max-width: 768px) {
   ._main {
@@ -50,6 +52,7 @@ body {
   .list_img {
     order: 2; /* Đưa ảnh xuống dưới video */
     display: flex;
+    flex-direction: row;
   }
 
   .img {
