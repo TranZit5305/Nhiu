@@ -11,7 +11,7 @@ body{
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  gap: 12px;                /* khoảng cách giữa video và chữ */
+  gap: 12px;              /* khoảng cách giữa video và chữ */
 }
 ._vdeo video {
   width: 100%;
