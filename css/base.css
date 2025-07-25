@@ -1,8 +1,29 @@
-body{
-     background-color:  rgb(53, 117, 109);
-     font: 1em sans-serif;
-     color: #efefef;;
+body {
+  background-color: rgb(53, 117, 109);
+  font: 1em sans-serif;
+  color: #efefef;
 }
+
+._main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.list_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(27, 74, 116);
+  margin: 10px;
+}
+
 ._vdeo {
   display: flex;
   flex-direction: column;
@@ -11,23 +32,27 @@ body{
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  gap: 12px;              /* khoảng cách giữa video và chữ */
+  gap: 12px;
 }
+
 ._vdeo video {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9; /* Đảm bảo giữ đúng tỉ lệ */
+  aspect-ratio: 16 / 9;
 }
-._main{
-  display: flex;
-}
-.img{
-  width: 100px;
-  height: 100px;
-  background-color: rgb(27, 74, 116)
-}
+
+/* MOBILE: stack ảnh xuống dưới và hiển thị lại */
 @media screen and (max-width: 768px) {
+  ._main {
+    flex-direction: column;
+  }
+
+  .list_img {
+    order: 2; /* Đưa ảnh xuống dưới video */
+    display: flex;
+  }
+
   .img {
-    display: none;
+    display: block; /* Hiển thị lại ảnh */
   }
 }
