@@ -5,11 +5,11 @@ let index = 0;
 let count_reset = 0,count_max = 2;
 function mo_dau(){
     alert("Cảm ơn bạn Chút đã xem cái trang này của tuii")
-    alert("Mong ban se xem het")
+    alert("Mong bạn sẽ xem hết")
 }
 const video = document.getElementById("myVideo");
   video.addEventListener("ended", function () {
-    alert("Video đã xem xong!");
+    alert("Cảm ơn bạn đã xem hết video!");
   });
 function typeLetter() {
     if (index < text_run.length) {
