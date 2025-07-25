@@ -1,11 +1,21 @@
-function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      const correctPassword = "22012005"; // ✅ Đổi mật khẩu tùy ý
+const input = document.getElementById("passwordInput");
+const error = document.getElementById("error");
 
-      if (input === correctPassword) {
-        // ✅ Mở trang mới ở tab khác
-        window.open("./main.html", "_blank");
-      } else {
-        document.getElementById("error").textContent = "Sai mật khẩu!";
-      }
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+    else{
+        error.textContent = "";
+    }
+});
+function checkPassword() {
+    const correctPassword = "22012005"; // thay mật khẩu ở đây
+    const enteredPassword = input.value;
+
+    if (enteredPassword === correctPassword) {
+        window.location.href = "./main.html"; // hoặc trang bạn muốn chuyển đến
+    } else {
+        error.textContent = "Sai mật khẩu. Vui lòng thử lại.";
+    }
 }
