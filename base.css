@@ -5,14 +5,29 @@ body{
 }
 ._vdeo {
   display: flex;
-  flex-direction: column;      /* xếp theo chiều dọc */
-  align-items: center;         /* căn giữa ngang */
-  justify-content: center;     /* căn giữa dọc (nếu cần) */
-  min-height: 360px;
-  width: 640px;
-  margin: 0 auto;              /* căn giữa toàn khối nếu cần */
-  gap: 12px;                   /* khoảng cách giữa video và chữ */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  gap: 12px;                /* khoảng cách giữa video và chữ */
+}
+._vdeo video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Đảm bảo giữ đúng tỉ lệ */
 }
 ._main{
   display: flex;
+}
+.img{
+  width: 100px;
+  height: 100px;
+  background-color: rgb(27, 74, 116)
+}
+@media screen and (max-width: 768px) {
+  .img {
+    display: none;
+  }
 }

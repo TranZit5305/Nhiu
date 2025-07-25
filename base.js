@@ -1,17 +1,25 @@
-const text = "Chào bạn, đây là hiệu ứng hiện từng chữ!";
+const text_run= "Chào bạn, đây là hiệu ứng hiện từng chữ!";
+const text_endvideo = "Cảm ơn bạn thời gian qua rất nhiều";
 const container = document.getElementsByClassName("text-container")[0];
 
 let index = 0;
+let count_reset = 0,count_max = 2;
 function mo_dau(){
-    alert("hhihi")
+    alert("Cảm ơn bạn Chút đã xem cái trang này của tuii")
+    alert("Mong ban se xem het")
 }
+const video = document.getElementById("myVideo");
+  video.addEventListener("ended", function () {
+    alert("Video đã xem xong!");
+  });
 function typeLetter() {
     if (index < text.length) {
         container.textContent += text[index];
         index++;
         setTimeout(typeLetter, 140); // tốc độ gõ: 100ms
     }
-    else if (index == text.length){
+    else if (index == text.length && count_reset < count_max){
+        count_reset += 1;
         setTimeout(() => {
             container.textContent = "";
             index = 0;
@@ -19,5 +27,6 @@ function typeLetter() {
         }, 2000);
     }
 }
+
 // mo_dau();
 typeLetter();
