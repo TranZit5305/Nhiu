@@ -1,7 +1,6 @@
 const text_run= "Chào bạn, đây là hiệu ứng hiện từng chữ!";
 const text_endvideo = "Cảm ơn bạn thời gian qua rất nhiều";
 const container = document.getElementsByClassName("text-container")[0];
-
 let index = 0;
 let count_reset = 0,count_max = 2;
 function mo_dau(){
@@ -13,12 +12,12 @@ const video = document.getElementById("myVideo");
     alert("Video đã xem xong!");
   });
 function typeLetter() {
-    if (index < text.length) {
-        container.textContent += text[index];
+    if (index < text_run.length) {
+        container.textContent += text_run[index];
         index++;
         setTimeout(typeLetter, 140); // tốc độ gõ: 100ms
     }
-    else if (index == text.length && count_reset < count_max){
+    else if (index == text_run.length ){
         count_reset += 1;
         setTimeout(() => {
             container.textContent = "";
