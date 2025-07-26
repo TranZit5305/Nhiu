@@ -3,56 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Chia Sẻ</title>
+  <title>💖 Gửi bạn điều nhỏ xinh 💖</title>
   <link rel="stylesheet" href="../css/base.css" />
+  <link rel="icon" href="heart.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="page-content">
-    <!-- Cột hình trái -->
-    <section class="list-img">
-      <img src="../assets/left.gif" class="side-img" alt="img" />
-      <div class="img-box">🎁</div>
-      <div class="img-box">💌</div>
-      <div class="img-box">🎉</div>
-    </section>
+  <!-- Nhạc nền -->
+  <audio id="bg-music" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
-    <!-- Video + text -->
+  <!-- Tuyết -->
+  <canvas id="snow"></canvas>
+
+  <!-- Nội dung chính -->
+  <main class="page-content">
+    <!-- Trái -->
+    <aside class="list-img">
+      <img src="left.gif" class="side-img" alt="Trang trí trái" />
+      <div class="img-box" title="Quà tặng">🎁</div>
+      <div class="img-box" title="Thư tình">💌</div>
+      <div class="img-box" title="Chúc mừng">🎉</div>
+    </aside>
+
+    <!-- Video và chữ -->
     <section class="video-section">
       <div class="text-container"></div>
       <video id="myVideo" controls playsinline controlsList="nodownload">
-        <source src="../assets/video.mp4" type="video/mp4" />
-        Trình duyệt của bạn không hỗ trợ video.
+        <source src="video.mp4" type="video/mp4" />
+        Trình duyệt không hỗ trợ video.
       </video>
-      <button id="replayBtn" style="display: none;">🔁 Xem lại video</button>
+      <button id="replayBtn" hidden>🔁 Xem lại video</button>
     </section>
 
-    <!-- Cột hình phải -->
-    <section class="list-img">
-      <img src="../assets/right.gif" class="side-img" alt="img" />
-      <div class="img-box">🌟</div>
-      <div class="img-box">💖</div>
-      <div class="img-box">📦</div>
-    </section>
+    <!-- Phải -->
+    <aside class="list-img">
+      <img src="right.gif" class="side-img" alt="Trang trí phải" />
+      <div class="img-box" title="Lấp lánh">🌟</div>
+      <div class="img-box" title="Thương nhiều">💖</div>
+      <div class="img-box" title="Hộp bí mật">📦</div>
+    </aside>
   </main>
 
-  <!-- Mạng xã hội -->
-  <footer class="share-section">
-    <p>Chia sẻ với bạn bè:</p>
+  <!-- Chia sẻ -->
+  <footer id="socialCorner" class="share-section">
     <div class="social-icons">
-      <a href="https://facebook.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" />
+      <a href="https://facebook.com/tran.viet.783149" class="facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
         <span>Facebook</span>
       </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      <a href="https://instagram.com/kudotran5305" class="instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
         <span>Instagram</span>
       </a>
-      <a href="https://tiktok.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok" />
-        <span>TikTok</span>
+      <a href="https://github.com/KidoKosho" class="github" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
       </a>
     </div>
   </footer>
+  <!-- Chữ ký -->
+  <div class="signature">— KIDO —</div>
 
   <script src="../js/base.js"></script>
 </body>

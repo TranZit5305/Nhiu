@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,13 +7,40 @@
   <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
-  <div id="passwordPrompt">
-    <h2>🔒 Nhập mã truy cập</h2>
-    <div class="Ten">📅 Ngày sinh của bạn Chút</div>
-    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu..." />
-    <button onclick="checkPassword()">Vào trang</button>
-    <p id="error"></p>
+  <!-- Nền particles động -->
+  <div id="particles-js"></div>
+
+  <div class="login-container">
+    <div class="login-box">
+      <h2>🔒 Nhập mã truy cập</h2>
+      <p class="subtext">📅 Ngày sinh của bạn Chút</p>
+      <input type="password" id="passwordInput" placeholder="Nhập mật khẩu..." />
+      <button onclick="checkPassword()">Vào trang</button>
+      <p id="error" ></p>
+    </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="../js/login.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 700 }},
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, anim: { enable: false }},
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#fff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }},
+        modes: { repulse: { distance: 100 }, push: { particles_nb: 4 }}
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
+
 </html>

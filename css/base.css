@@ -1,153 +1,218 @@
-/* ===== Reset ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  background: linear-gradient(to right, #141e30, #243b55);
-  color: white;
-  font-family: "Segoe UI", sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-  display: none;
-}
+  body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: white;
+  }
 
-.page-content {
+  /* Tuyết */
+  #snow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Layout chính */
+  .page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    gap: 30px;
+    flex-wrap: wrap;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* Trang trí bên */
+  .list-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .side-img {
+    width: 70px;
+  }
+  .img-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+  }
+  .img-box:hover {
+    transform: scale(1.1);
+    background-color: #ffffff22;
+  }
+
+  /* Video + chữ chạy */
+  .video-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    width: 100%;
+  }
+  video {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .text-container {
+    font-size: 20px;
+    color: #ffdf7e;
+    font-weight: bold;
+    min-height: 30px;
+    text-align: center;
+    font-style: italic;
+    animation: fadeIn 2s;
+    text-shadow: 0 0 8px #fff3b0;
+  }
+
+  /* Nút replay */
+  #replayBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  #replayBtn:hover {
+    background-color: #feb47b;
+  }
+
+  /* Góc chia sẻ */
+  .share-section {
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+  }
+ .social-icons {
   display: flex;
   justify-content: center;
+  gap: 24px;
   align-items: center;
-  padding: 30px 15px;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-/* ===== Hình bên ===== */
-.list-img {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-}
-
-.img-box {
-  width: 60px;
-  height: 60px;
-  background-color: #1b4a74;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-.side-img {
-  width: 70px;
-  height: auto;
-}
-
-/* ===== Video + Text ===== */
-.video-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  max-width: 600px;
-  width: 100%;
-}
-
-video {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-.text-container {
-  font-size: 20px;
-  color: #00ffd5;
-  font-weight: bold;
-  min-height: 30px;
-  text-align: center;
-}
-
-/* ===== Replay Button ===== */
-#replayBtn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #00c6ff;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#replayBtn:hover {
-  background-color: #0072ff;
-}
-
-/* ===== Share section ===== */
-.share-section {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.share-section p {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
 }
 
 .social-icons a {
   text-decoration: none;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s;
+  width: 70px;
+  transition: transform 0.3s ease;
 }
 
-.social-icons img {
-  width: 40px;
-  height: 40px;
+.social-icons .icon-circle {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   margin-bottom: 6px;
 }
 
+/* Icon font */
+.social-icons i {
+  font-size: 26px;
+}
+
+/* Màu thương hiệu */
+.social-icons a.facebook i {
+  color: #1877f2;
+}
+body{
+  display: none;
+}
+.social-icons a.instagram i {
+  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social-icons a.github i {
+  color: #333;
+}
+
+/* Text dưới icon */
+.social-icons span {
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 2px;
+  text-align: center;
+}
+
+.social-icons a.facebook span {
+  color: #1877f2;
+}
+.social-icons a.instagram span {
+  color: #e1306c;
+}
+.social-icons a.github span {
+  color: #333;
+}
+
 .social-icons a:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  filter: brightness(1.1);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .page-content {
-    flex-direction: column;
-    align-items: center;
+  /* Chữ ký */
+  .signature {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    margin: 30px 0;
+    color: #ffe5e5;
   }
 
-  .list-img {
-    flex-direction: row;
-    flex-wrap: wrap;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-content {
+      flex-direction: column;
+    }
+    .list-img {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .side-img {
+      width: 50px;
+    }
+    .img-box {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+    }
   }
-
-  .img-box {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-
-  .text-container {
-    font-size: 16px;
-  }
-
-  .side-img {
-    width: 50px;
-  }
-}
