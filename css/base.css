@@ -1,61 +1,153 @@
-body {
-  background-color: rgb(53, 117, 109);
-  font: 1em sans-serif;
-  color: #efefef;
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-._main {
+body {
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: none;
+}
+
+.page-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px 15px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
-.list_img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.img {
-  width: 100px;
-  height: 100px;
-  background-color: rgb(27, 74, 116);
-  margin: 10px;
-}
-
-._vdeo {
+/* ===== Hình bên ===== */
+.list-img {
   display: flex;
   flex-direction: column;
+  gap: 14px;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  gap: 12px;
 }
 
-._vdeo video {
-  width: 100%;
+.img-box {
+  width: 60px;
+  height: 60px;
+  background-color: #1b4a74;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.side-img {
+  width: 70px;
   height: auto;
-  aspect-ratio: 16 / 9;
 }
-.list_img {
+
+/* ===== Video + Text ===== */
+.video-section {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 600px;
+  width: 100%;
 }
-/* MOBILE: stack ảnh xuống dưới và hiển thị lại */
-@media screen and (max-width: 768px) {
-  ._main {
+
+video {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.text-container {
+  font-size: 20px;
+  color: #00ffd5;
+  font-weight: bold;
+  min-height: 30px;
+  text-align: center;
+}
+
+/* ===== Replay Button ===== */
+#replayBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #00c6ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#replayBtn:hover {
+  background-color: #0072ff;
+}
+
+/* ===== Share section ===== */
+.share-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.share-section p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .page-content {
     flex-direction: column;
+    align-items: center;
   }
 
-  .list_img {
-    order: 2; /* Đưa ảnh xuống dưới video */
-    display: flex;
+  .list-img {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  .img {
-    display: block; /* Hiển thị lại ảnh */
+  .img-box {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .text-container {
+    font-size: 16px;
+  }
+
+  .side-img {
+    width: 50px;
   }
 }

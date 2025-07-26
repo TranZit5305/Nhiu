@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/login.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
-    <div id="passwordPrompt">
-    <h2>Nhập mã truy cập:</h2>
-      <input type="password" id="passwordInput" placeholder="Nhập mật khẩu...(Ngày sinh của bạn Chút)" />
+  <div id="passwordPrompt">
+    <h2>🔒 Nhập mã truy cập</h2>
+    <div class="Ten">📅 Ngày sinh của bạn Chút</div>
+    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu..." />
     <button onclick="checkPassword()">Vào trang</button>
-    <p id="error" style="color: red;"></p>
+    <p id="error"></p>
   </div>
+  <script src="../js/login.js"></script>
 </body>
-<script src="../js/login.js"></script>
 </html>

@@ -1,32 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NHiu</title>
+  <title>Video Chia Sẻ</title>
   <link rel="stylesheet" href="../css/base.css" />
 </head>
 <body>
-  <div class="_main">
-    <div class="list_img">
-      <div class="img">hi</div>
-    </div>
-    <div class="_vdeo" >
+  <main class="page-content">
+    <!-- Cột hình trái -->
+    <section class="list-img">
+      <img src="../assets/left.gif" class="side-img" alt="img" />
+      <div class="img-box">🎁</div>
+      <div class="img-box">💌</div>
+      <div class="img-box">🎉</div>
+    </section>
+
+    <!-- Video + text -->
+    <section class="video-section">
       <div class="text-container"></div>
-      <video  id="myVideo" controls playsinline>
-        <source src="../test.mp4" type="video/mp4" />
-        <source src="video1.mkv" type="video/webm" />
-  
-        Trình duyệt của bạn không hỗ trợ video
+      <video id="myVideo" controls playsinline controlsList="nodownload">
+        <source src="../assets/video.mp4" type="video/mp4" />
+        Trình duyệt của bạn không hỗ trợ video.
       </video>
+      <button id="replayBtn" style="display: none;">🔁 Xem lại video</button>
+    </section>
+
+    <!-- Cột hình phải -->
+    <section class="list-img">
+      <img src="../assets/right.gif" class="side-img" alt="img" />
+      <div class="img-box">🌟</div>
+      <div class="img-box">💖</div>
+      <div class="img-box">📦</div>
+    </section>
+  </main>
+
+  <!-- Mạng xã hội -->
+  <footer class="share-section">
+    <p>Chia sẻ với bạn bè:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" />
+        <span>Facebook</span>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+      <a href="https://tiktok.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok" />
+        <span>TikTok</span>
+      </a>
     </div>
-    <div class="list_img">
-      <div class="img">hi</div>
-      <div class="img">hi</div>
-      <div class="img">hi</div>
-    </div>
-    
-  </div>
+  </footer>
 
   <script src="../js/base.js"></script>
 </body>
