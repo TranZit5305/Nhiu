@@ -25,47 +25,79 @@
 
   /* Layout chính */
   .page-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 15px;
-    gap: 30px;
-    flex-wrap: wrap;
-    z-index: 1;
-    position: relative;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+  gap: 30px;
+  flex-wrap: nowrap;
+}
 
-  /* Trang trí bên */
-  .list-img {
-    display: flex;
+/* Trang trí bên trái/phải */
+.list-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.side-img {
+  width: 200px;
+}
+
+/* Box icon tròn */
+.img-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+.img-box:hover {
+  transform: scale(1.1);
+  background-color: #ffffff22;
+}
+
+/* ✅ VÙNG icon cho mobile */
+.mobile-img-boxes {
+  display: none; /* PC ẩn */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .page-content {
     flex-direction: column;
     align-items: center;
-    gap: 14px;
   }
-  .side-img {
-    width: 70px;
+
+  .list-img {
+    display: none; /* Ẩn bên trái/phải */
   }
-  .img-box {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+
+  .mobile-img-boxes {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s;
   }
-  .img-box:hover {
-    transform: scale(1.1);
-    background-color: #ffffff22;
+
+  .img-box {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
   }
+}
 
   /* Video + chữ chạy */
   .video-section {
     display: flex;
     flex-direction: column;
+    align-self: start;
     align-items: center;
     gap: 20px;
     max-width: 600px;
@@ -204,11 +236,7 @@ body{
       flex-direction: column;
     }
     .list-img {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .side-img {
-      width: 50px;
+      display : none;
     }
     .img-box {
       width: 50px;
