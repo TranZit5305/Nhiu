@@ -14,6 +14,7 @@ function checkPassword() {
     const enteredPassword = input.value;
 
     if (enteredPassword === correctPassword) {
+        sessionStorage.setItem("isLoggedIn", "true");
         window.location.href = "./main.html"; // hoặc trang bạn muốn chuyển đến
     } else {
         error.textContent = "Sai mật khẩu. Vui lòng thử lại.";

@@ -3,6 +3,12 @@ const text_endvideo = "Cảm ơn bạn thời gian qua rất nhiều";
 const container = document.getElementsByClassName("text-container")[0];
 let index = 0;
 let count_reset = 0,count_max = 2;
+function checkxemvotudau(){
+    alert("helo")
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "../html/login.html"; // quay lại nếu chưa đăng nhập
+    }
+}
 function mo_dau(){
     alert("Cảm ơn bạn Chút đã xem cái trang này của tuii")
     alert("Mong bạn sẽ xem hết")
@@ -26,6 +32,8 @@ function typeLetter() {
         }, 2000);
     }
 }
-
-// mo_dau();
-typeLetter();
+window.onload = function(){
+    checkxemvotudau();
+    mo_dau();
+    typeLetter();
+}
