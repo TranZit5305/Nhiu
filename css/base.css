@@ -39,6 +39,7 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  margin-top: 50px;
 }
 .list-img .side-img {
   width: 100px;

@@ -14,6 +14,7 @@
 
   function closeAlert() {
     document.getElementById('customAlert').style.display = 'none';
+    Start();
   }
   // Gõ từng chữ
   function typeLetter() {
@@ -54,6 +55,13 @@
     postToYouTube("unMute");
   }
 });
+  function Start(){// Hiện trang
+    
+    pageContent.style.display = "flex";
+    typeLetter();
+    initSnow();
+    animateSnow();
+  }
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());
   document.addEventListener("DOMContentLoaded", () => {
@@ -62,14 +70,11 @@
       window.location.href = "../html/login.html"; // Đổi đúng tên file login của bạn
       return;
     }
-    document.body.style.display = "block"
-    pageContent.hidden = false;// Hiện trang
-    
+    document.body.style.display = "block";
+    pageContent.style.display = "none";
     // loinoidau();
     window.onload = () => {
       setTimeout(showCustomAlert, 1000);
     };
-    typeLetter();
-    initSnow();
-    animateSnow();
+    
   });
