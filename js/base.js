@@ -3,8 +3,9 @@
   const video = document.getElementById("myVideo");
   const replayBtn = document.getElementById("replayBtn");
   const pageContent = document.querySelector(".page-content");
-  const bgMusic = document.getElementById("bg-music");
+  const youtubeIframe = document.querySelector("iframe");
 
+  
   let index = 0;
   // JavaScript
   function showCustomAlert() {
@@ -25,22 +26,36 @@
     alert("Cảm ơn bạn Chút đã vào đây,cảm ơn bạn rất nhiều ,mong bạn sẽ xem hết video nhé :>");
   }
   // Xử lý video
-  video.addEventListener("play", () => bgMusic.pause());
+  function postToYouTube(command) {
+    if (!youtubeIframe) return;
+    youtubeIframe.contentWindow.postMessage(JSON.stringify({
+      event: 'command',
+      func: command,
+      args: []
+    }), "*");
+  }
+  video.addEventListener("play", () => {
+    postToYouTube("mute");
+  });
   video.addEventListener("ended", () => {
+    postToYouTube("unMute");
     alert("Cảm ơn bạn đã xem hết video!");
     replayBtn.hidden = false;
-    bgMusic.play();
   });
 
   replayBtn.addEventListener("click", () => {
     video.currentTime = 0;
     video.play();
     replayBtn.hidden = true;
+    postToYouTube("mute");
   });
-
+  video.addEventListener("pause", () => {
+  if (!video.ended) {
+    postToYouTube("unMute");
+  }
+});
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());
-
   document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.getItem("isLoggedIn") !== "true") {
       alert("Bạn chưa nhập mật khẩu vui lòng nhập mật khẩu....")
