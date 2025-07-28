@@ -40,10 +40,15 @@
   align-items: center;
   gap: 14px;
 }
+.list-img .side-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 .side-img {
   width: 200px;
 }
-
 /* Box icon tròn */
 .img-box {
   width: 60px;
@@ -229,7 +234,35 @@ body{
     margin: 30px 0;
     color: #ffe5e5;
   }
+   #customAlert {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      text-align: center;
+    }
 
+    #customAlert img {
+      width: 200px;
+      max-width: 90vw;
+      border-radius: 10px;
+    }
+
+    #customAlert button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #ff7e5f;
+      color: white;
+      font-size: 16px;
+    }
   /* Responsive */
   @media (max-width: 768px) {
     .page-content {

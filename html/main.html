@@ -5,25 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NHiu</title>
   <link rel="stylesheet" href="../css/base.css" />
-  <link rel="icon" href="../image-Photoroom.png" type="image/x-icon" />
+  <link rel="icon" href="../img/img_title.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- Nhạc nền -->
-  <audio id="bg-music" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+  <iframe
+  width="0" height="0"
+  src="https://www.youtube.com/embed/ZX2mjf9dFH8?autoplay=1&loop=1&playlist=ZX2mjf9dFH8"
+  frameborder="0"
+  allow="autoplay"
+></iframe>
 
   <!-- Tuyết -->
   <canvas id="snow"></canvas>
-
+  
   <!-- Nội dung chính -->
   <main class="page-content">
     <!-- Trái -->
     <aside class="list-img left">
-      <img src="../Nitro_Wallpaper_02_3840x2400.jpg" class="side-img" alt="Trang trí trái" />
+      <img src="../img/img3.png" class="side-img" alt="Trang trí trái" />
       <div class="img-box" title="Quà tặng">🎁</div>
       <div class="img-box" title="Thư tình">💌</div>
       <div class="img-box" title="Chúc mừng">🎉</div>
@@ -49,9 +53,7 @@
 
     <!-- Phải -->
     <aside class="list-img right">
-      <img src="right.gif" class="side-img" alt="Trang trí phải" />
-      <img src="../Nitro_Wallpaper_02_3840x2400.jpg" class="side-img" alt="Trang trí trái" />
-      <img src="../Nitro_Wallpaper_02_3840x2400.jpg" class="side-img" alt="Trang trí trái" />
+      <img src="../img/img1.png" class="side-img" alt="Trang trí trái" />
       <div class="img-box" title="Lấp lánh">🌟</div>
       <div class="img-box" title="Thương nhiều">💖</div>
       <div class="img-box" title="Hộp bí mật">📦</div>
@@ -79,5 +81,10 @@
   <div class="signature">— KIDO —</div>
   <script src="../js/base.js"></script>
   <script src="../js/snow.js"></script>
+  <div id="customAlert" >
+  <img src="../img/img_alert.png" alt="Ảnh thông báo" />
+  <p style="color:black; margin-top:10px; max-width: 200px;">Cảm ơn bạn Chút thời gian qua rất là nhiềuu!</p>
+  <button onclick="closeAlert()">Đóng</button>
+</div>
 </body>
 </html>
