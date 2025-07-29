@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gửi Dữ Liệu</title>
+  <meta charset="UTF-8">
+  <title>Gửi dữ liệu</title>
 </head>
 <body>
+  <h2>Gửi phản hồi</h2>
   <form id="myForm">
-    <input name="Name" placeholder="Tên" required><br>
-    <input name="Message" placeholder="Nội dung" required><br>
-    <input name="Date" type="date" required><br>
+    <label for="Name">Tên:</label>
+    <input type="text" id="Name" name="Name" required><br><br>
+
+    <label for="Content">Nội dung:</label>
+    <textarea id="Content" name="Content" required></textarea><br><br>
+
     <button type="submit">Gửi</button>
   </form>
 
   <script>
-    document.getElementById("myForm").addEventListener("submit", function (e) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbybPopAJ9oPUFrmybyHnolJJNoY9bAQJyEjjma6oibqOBAY9ljLcLBfg_7zB0E_Qioc4w/exec'; // Thay bằng URL của bạn
+
+    document.getElementById('myForm').addEventListener('submit', e => {
       e.preventDefault();
 
-      const name = this.elements["Name"].value.trim();
-      const message = this.elements["Message"].value.trim();
-      const date = this.elements["Date"].value;
+      const formData = new FormData(e.target);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
 
-      const combined = `Tên: ${name} | Nội dung: ${message} | Ngày: ${date}`;
-
-      const formData = new URLSearchParams();
-      formData.append("Combined", combined);
-
-      fetch("https://script.google.com/macros/s/AKfycbybPopAJ9oPUFrmybyHnolJJNoY9bAQJyEjjma6oibqOBAY9ljLcLBfg_7zB0E_Qioc4w/exec", {
-        method: "POST",
-        body: formData,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new URLSearchParams(data)
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data.result === "success") {
-          alert("Gửi thành công!");
-          document.getElementById("myForm").reset();
+      .then(response => response.json())
+      .then(response => {
+        if (response.result === 'success') {
+          alert('Gửi thành công!');
+          document.getElementById('myForm').reset();
         } else {
-          alert("Gửi thất bại: " + data.error);
+          alert('Gửi thất bại: ' + JSON.stringify(response));
         }
       })
-      .catch(err => alert("Lỗi kết nối: " + err));
+      .catch(error => alert('Gửi thất bại: ' + error));
     });
   </script>
 </body>
