@@ -10,21 +10,17 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-<div id="customAlert" >
+  <div id="customAlert" >
     <img src="../img/img_alert.png" alt="Ảnh thông báo" />
     <p style="color:black; margin-top:10px; max-width: 200px;">Cảm ơn bạn Chút thời gian qua rất là nhiềuu!</p>
     <button onclick="closeAlert()">Đóng</button>
   </div>
 <body>
   <!-- Nhạc nền -->
-  <iframe
-  id="bgMusic"
-  width="0" height="0"
-  src="https://www.youtube.com/embed/ZX2mjf9dFH8?autoplay=1&loop=1&playlist=ZX2mjf9dFH8&enablejsapi=1"
-  frameborder="0"
-  allow="autoplay"
-></iframe>
-
+  <audio id="bgMusic" loop>
+    <source src="../music/lofichill.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="BtnMusic"> Nhạc nền 🎵</button>
   <!-- Tuyết -->
   <canvas id="snow"></canvas>
   

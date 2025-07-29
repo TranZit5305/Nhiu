@@ -12,6 +12,25 @@
     position: relative;
     color: white;
   }
+ /* Music */
+ button {
+  background: linear-gradient(135deg, hsla(260, 86%, 44%, 0.039), #0d8bcf);
+  border: none;
+  color: rgb(220, 122, 122);
+  padding: 5px 10px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin: 10px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg,hsla(260, 44%, 54%, 0.039), #57b1e1);
+}
 
   /* Tuyết */
   #snow {
