@@ -87,4 +87,8 @@ closeBtnImg.onclick = () => {
   imageStack.style.display = "none";
   closeBtnImg.style.display = "none";
   Start();
-};
+};  
+  // Hàm kiểm tra thiết bị có phải là mobile không
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }

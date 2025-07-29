@@ -105,16 +105,12 @@
       setTimeout(showCustomAlert, 200);
     };
     // return lai trang khi tab trang khac
-  // document.addEventListener("visibilitychange", () => {
-  // if (document.visibilityState === "hidden") {
-  //     sessionStorage.setItem("isLoggedIn", "false");
-  //     window.location.href = "../html/login.html"; // hoặc location.reload();
-  //   }
-  // });
-
-  window.addEventListener("pagehide", () => {
-    sessionStorage.setItem("isLoggedIn", "false");
-    window.location.href = "../html/login.html";
-  });
-  
+   if (isMobileDevice()){
+    document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+        sessionStorage.setItem("isLoggedIn", "false");
+        window.location.href = "../html/login.html"; // hoặc location.reload();
+      }
+    });
+   }
 });

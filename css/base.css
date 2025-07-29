@@ -348,12 +348,12 @@ body{
   }
 @media (max-width: 500px) {
   #imageStack {
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 250px;
   }
 
   #imageStack img.floating-img {
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 70px;
+    max-height: 70px;
   }
 }
