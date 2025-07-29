@@ -15,13 +15,12 @@
   <p id="status"></p>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxHZK95hiQGSEaflrvr9ds43pXmub5CdJuWOdBdz-IRpgPhXZYgojAsEqa1mhq_iD8X0A/exec';
-
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxNyO08FRfH8xXzRHO6J-DOC2RWqZ6IsJ2Apf5ef9xI/dev'
     document.getElementById('myForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
-
+        alert("?")
       fetch(scriptURL, {
         method: 'POST',
         body: formData
