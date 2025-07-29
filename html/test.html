@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gửi dữ liệu đến Google Sheet</title>
+  <meta charset="UTF-8">
+  <title>Gửi dữ liệu</title>
 </head>
 <body>
-  <h2>Gửi thông tin</h2>
-  <form id="dataForm">
-    <label>Họ tên: <input type="text" name="name" required /></label><br /><br />
-    <label>Tuổi: <input type="number" name="age" required /></label><br /><br />
-    <button type="submit">Gửi</button>
-  </form>
-
+  <h2>Gửi tên và tuổi đến Google Sheet</h2>
+  <input type="text" id="name" placeholder="Tên">
+  <input type="number" id="age" placeholder="Tuổi">
+  <button onclick="sendData()">Gửi</button>
   <p id="result"></p>
 
   <script>
-    const form = document.getElementById("dataForm");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    async function sendData() {
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
 
-      const name = form.name.value;
-      const age = form.age.value;
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('age', age);
 
-      const url = "https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec"; // 🔁 Thay YOUR_SCRIPT_ID
-
-      const params = new URLSearchParams();
-      params.append("name", name);
-      params.append("age", age);
-
-      const response = await fetch(url, {
-        method: "POST",
-        body: params,
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwZbvwAGqEyJ7R52UuB9q_your_deployed_URL/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
       });
 
-      const result = await response.text();
-      document.getElementById("result").textContent = result;
-    });
+      const text = await response.text();
+      document.getElementById('result').innerText = text;
+    }
   </script>
 </body>
 </html>
