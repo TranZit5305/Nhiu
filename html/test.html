@@ -19,7 +19,7 @@
 
     document.getElementById('myForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
+        alert("Đang gửi tin nhắn, vui lòng đợi trong giây lát...");
       const formData = new FormData(this);
       const data = {
         name: formData.get('name'),
