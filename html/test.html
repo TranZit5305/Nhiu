@@ -15,11 +15,11 @@
   <p id="status"></p>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzhBWP-5sT7RrF7PaitXiUwHazuTMGtRMUSC6oeNY2cSd0bAQocPuMky_M3FivaeL3c8Q/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxHZK95hiQGSEaflrvr9ds43pXmub5CdJuWOdBdz-IRpgPhXZYgojAsEqa1mhq_iD8X0A/exec';
 
     document.getElementById('myForm').addEventListener('submit', function (e) {
       e.preventDefault();
-        alert("Đang gửi tin nhắn, vui lòng đợi trong giây lát...");
+        alert("Đang gửi tin nhắn, vui lòng đợi trong giây lát!...");
       const formData = new FormData(this);
       const data = {
         name: formData.get('name'),
@@ -35,11 +35,11 @@
       })
       .then(res => res.text())
       .then(response => {
-        document.getElementById('status').innerText = "Đã gửi thành công!";
+        document.getElementById('status').innerText = "✅ " + response;
         this.reset();
       })
       .catch(error => {
-        document.getElementById('status').innerText = "Lỗi khi gửi!";
+        document.getElementById('status').innerText = "❌ Lỗi khi gửi: " + error;
       });
     });
   </script>
