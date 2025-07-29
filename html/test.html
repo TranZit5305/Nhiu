@@ -2,18 +2,40 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Form gửi đến Google Apps Script</title>
+  <title>Gửi dữ liệu đến Google Sheet</title>
 </head>
 <body>
   <h2>Gửi thông tin</h2>
-  <form action="https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec" method="post">
-    <label for="name">Tên:</label>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="age">Tuổi:</label>
-    <input type="number" id="age" name="age" required><br><br>
-
+  <form id="dataForm">
+    <label>Họ tên: <input type="text" name="name" required /></label><br /><br />
+    <label>Tuổi: <input type="number" name="age" required /></label><br /><br />
     <button type="submit">Gửi</button>
   </form>
+
+  <p id="result"></p>
+
+  <script>
+    const form = document.getElementById("dataForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = form.name.value;
+      const age = form.age.value;
+
+      const url = "https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec"; // 🔁 Thay YOUR_SCRIPT_ID
+
+      const params = new URLSearchParams();
+      params.append("name", name);
+      params.append("age", age);
+
+      const response = await fetch(url, {
+        method: "POST",
+        body: params,
+      });
+
+      const result = await response.text();
+      document.getElementById("result").textContent = result;
+    });
+  </script>
 </body>
 </html>
