@@ -8,6 +8,7 @@
 
   let musicWasPlaying = false;
   let index = 0;
+  let count_end = 1,count_value =0;
   // JavaScript
   function showCustomAlert() {
     document.getElementById('customAlert').style.display = 'block';
@@ -28,44 +29,32 @@
     alert("Cảm ơn bạn Chút đã vào đây,cảm ơn bạn rất nhiều ,mong bạn sẽ xem hết video nhé :>");
   }
   // Xử lý video
-  function postToYouTube(command) {
-    if (!youtubeIframe) return;
-    youtubeIframe.contentWindow.postMessage(JSON.stringify({
-      event: 'command',
-      func: command,
-      args: []
-    }), "*");
-  }
   video.addEventListener("play", () => {
   if (!audio.paused) {
-    musicWasPlaying = true;
     audio.pause(); // Tắt nhạc khi video phát
-  } else {
-    musicWasPlaying = false;
   }
 });
   btnMusic.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.play();
-    btnMusic.classList.remove("off");
+  if (audio.volume === 0) {
+    audio.volume = 1; // Đặt âm lượng nhạc nền
     btnMusic.textContent = "Nhạc nền 🎵";
   } else {
-    bgMusic.pause();
-    btnMusic.classList.add("off");
+    audio.volume = 0;
     btnMusic.textContent = "Nhạc nền 🔇";
   }
 });
   video.addEventListener("pause", () => {
-    if (!video.ended && musicWasPlaying) {
+    if (!video.ended) {
       audio.play(); // Phát lại nhạc khi dừng video giữa chừng
     }
   });
 
   video.addEventListener("ended", () => {
-    if (musicWasPlaying) {
       audio.play(); // Phát lại nhạc khi xem xong
+    if(count_value < count_end){
+      alert("Cảm ơn bạn đã xem hết video!");
+      count_value++;
     }
-    alert("Cảm ơn bạn đã xem hết video!");
     replayBtn.hidden = false;
   });
 
@@ -81,11 +70,11 @@
   });
   function Start(){// Hiện trang
     
+    audio.play();
     pageContent.style.display = "flex";
     typeLetter();
     initSnow();
     animateSnow();
-    audio.play();
   }
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());

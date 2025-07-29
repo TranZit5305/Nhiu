@@ -14,7 +14,7 @@
   }
  /* Music */
  button {
-  background: linear-gradient(135deg, hsla(260, 86%, 44%, 0.039), #0d8bcf);
+  background: linear-gradient(135deg, hsla(260, 55%, 43%, 0.039), #0d8bcf);
   border: none;
   color: rgb(220, 122, 122);
   padding: 5px 10px;
@@ -68,6 +68,10 @@ button:hover {
 
 .side-img {
   width: 200px;
+}
+.side-img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 /* Box icon tròn */
 .img-box {
