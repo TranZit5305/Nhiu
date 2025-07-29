@@ -30,8 +30,8 @@
   }
   function loinoidau(){
     alert("Cảm ơn bạn Chút đã vào đây,cảm ơn bạn rất nhiều ,mong bạn sẽ xem hết video nhé :>");
-  // }
-  // //let timeout;
+  }
+  //let timeout;
   // function resetTimer() {
   //   clearTimeout(timeout);
   //   timeout = setTimeout(() => {
@@ -88,7 +88,7 @@
     typeLetter();
     initSnow();
     animateSnow();
-    // resetTimer();
+    resetTimer();
   }
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());
