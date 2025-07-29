@@ -55,7 +55,7 @@ function showStackedImages() {
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
     
-    const imageSize = containerWidth * 0.23; // 23% khung, để có khoảng trống
+    const imageSize = containerWidth * 0.25; // 25% khung, để có khoảng trống
     
     for (let i = 0; i < totalImages; i++) {
         const img = document.createElement("img");

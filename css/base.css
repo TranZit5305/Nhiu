@@ -262,9 +262,9 @@ body{
    #customAlert {
       display: none;
       position: fixed;
-      top: 30%;
+      top: 45%;
       left: 50%;
-      transform: translate(-50%, -30%);
+      transform: translate(-50%, -50%);
       background: white;
       padding: 20px;
       border-radius: 10px;
@@ -293,10 +293,10 @@ body{
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 90vw;
-    max-width: 300px;
-    height: 90vw;
-    max-height: 300px;
+    width: 100vw;
+    max-width: 400px;
+    height: 100vw;
+    max-height: 400px;
     background: linear-gradient(145deg, #1f1c2c, #2d2b40);
     border-radius: 20px;
     overflow: hidden; /* ✅ Không cho ảnh tràn ra ngoài */
@@ -348,12 +348,12 @@ body{
   }
 @media (max-width: 500px) {
   #imageStack {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
   }
 
   #imageStack img.floating-img {
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 80px;
+    max-height: 80px;
   }
 }
