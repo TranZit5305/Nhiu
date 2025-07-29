@@ -82,13 +82,21 @@
       audio.pause();
     }
   });
+  OnloadbtnMusic = () => {
+    if(audio.muted){g
+      btnMusic.textContent = "Nhạc nền 🔇";
+    } else  {
+      btnMusic.textContent = "Nhạc nền 🎵";
+    }
+  }
   function Start(){// Hiện trang
   
     pageContent.style.display = "flex";
     typeLetter();
     initSnow();
     animateSnow();
-    resetTimer();
+    // resetTimer();
+    OnloadbtnMusic();
   }
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());
@@ -101,6 +109,8 @@
     document.body.style.display = "block";
     pageContent.style.display = "none";
     // loinoidau();
+    
+    OnloadbtnMusic();
     window.onload = () => {
       setTimeout(showCustomAlert, 200);
     };
