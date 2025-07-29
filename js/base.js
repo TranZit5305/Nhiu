@@ -90,7 +90,7 @@
     pageContent.style.display = "none";
     // loinoidau();
     window.onload = () => {
-      setTimeout(showCustomAlert, 500);
+      setTimeout(showCustomAlert, 200);
     };
     
   });

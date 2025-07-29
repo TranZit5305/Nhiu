@@ -39,12 +39,13 @@ const imageList = [
     "../img/list_img/img35.jpg",
     "../img/list_img/img36.jpg",
     "../img/list_img/img37.jpg",
-    "../img/list_img/img38.jpg",
+    "../img/list_img/img38.png",
     "../img/list_img/img39.jpg",
-    
     "../img/list_img/img18.png",
     "../img/list_img/img40.jpg",
     "../img/list_img/img41.jpg",
+    "../img/list_img/img43.png",
+    "../img/list_img/img44.png",
 ];
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
