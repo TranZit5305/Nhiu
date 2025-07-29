@@ -19,24 +19,17 @@
 
     document.getElementById('myForm').addEventListener('submit', function (e) {
       e.preventDefault();
-        alert("Đang gửi tin nhắn, vui lòng đợi trong giây lát!...");
-      const formData = new FormData(this);
-      const data = {
-        name: formData.get('name'),
-        message: formData.get('message')
-      };
+      const form = e.target;
+      const formData = new FormData(form);
 
       fetch(scriptURL, {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        body: formData
       })
-      .then(res => res.text())
-      .then(response => {
-        document.getElementById('status').innerText = "✅ " + response;
-        this.reset();
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById('status').innerText = "✅ " + result;
+        form.reset();
       })
       .catch(error => {
         document.getElementById('status').innerText = "❌ Lỗi khi gửi: " + error;
