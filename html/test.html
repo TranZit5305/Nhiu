@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gửi tin nhắn</title>
+  <meta charset="UTF-8">
+  <title>Gửi dữ liệu đến Google Apps Script</title>
 </head>
 <body>
-  <h1>Gửi lời nhắn</h1>
-  <form id="myForm">
-    <input type="text" name="name" placeholder="Tên của bạn" required><br><br>
-    <textarea name="message" placeholder="Lời nhắn..." required></textarea><br><br>
-    <button type="submit">Gửi</button>
-  </form>
-
-  <p id="status"></p>
+  <h2>Gửi dữ liệu bằng Fetch</h2>
+  <button id="sendBtn">Gửi dữ liệu</button>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxYIMEfFzE0pjbyV5HhtLJ2nCxg9tOav2R4di5VqwjhgqQ_ooOvTMa2lT4Y3cyB91xSkg/exec'
-    document.getElementById('myForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-        alert("??")
-      fetch(scriptURL, {
-        method: 'POST',
-        body: formData
+    const URL = "https://script.google.com/macros/s/AKfycbxYIMEfFzE0pjbyV5HhtLJ2nCxg9tOav2R4di5VqwjhgqQ_ooOvTMa2lT4Y3cyB91xSkg/exec"; // Thay bằng URL của bạn
+
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      fetch(URL, {
+        method: "POST",
+        mode: "cors", // quan trọng
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: "Kido",
+          age: 20
+        })
       })
-      .then(response => response.text())
-      .then(result => {
-        document.getElementById('status').innerText = "✅ " + result;
-        form.reset();
+      .then(response => {
+        if (!response.ok) throw new Error("❌ Không kết nối được với server");
+        return response.text();
       })
-      .catch(error => {
-        document.getElementById('status').innerText = "❌ Lỗi khi gửi: " + error;
+      .then(data => {
+        console.log("✅ Server response:", data);
+        alert("Thành công: " + data);
+      })
+      .catch(err => {
+        console.error("❌ Lỗi khi gửi:", err);
+        alert("Lỗi khi gửi: " + err.message);
       });
     });
   </script>
