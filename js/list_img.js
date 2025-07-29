@@ -54,12 +54,12 @@ const imageList = [
   // quan li hien anh phai trai
 const img_left = document.getElementById("img_left");
 const img_right = document.getElementById("img_right");
-let img_left_index = 1;
+let img_left_index = 0;
+let img_right_index = 0;
 img_left.addEventListener("click", () => {
     img_left.src = `../img/imgleft/img${img_left_index}.png`;
     img_left_index = (img_left_index + 1) % 2;
 });
-let img_right_index = 0;
 img_right.addEventListener("click", () => {
     img_right.src = `../img/imgright/img${img_right_index}.png`;
     img_right_index = (img_right_index + 1) % 2;
@@ -69,7 +69,6 @@ const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
 function showStackedImages() {   
     const container = document.getElementById("imageStack");
-    container.innerHTML = ""; // Xóa nội dung cũ
     container.style.display = "block";  
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
@@ -79,6 +78,7 @@ function showStackedImages() {
     for (let i = 0; i < totalImages; i++) {
         const img = document.createElement("img");
         img.src = imageList[i];
+        
         img.className = "floating-img"; // ✅ dùng class để apply CSS media queries
         img.style.zIndex = i+10;
         const maxX = containerWidth - imageSize;

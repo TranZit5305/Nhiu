@@ -153,7 +153,11 @@ button:hover {
     animation: fadeIn 2s;
     text-shadow: 0 0 8px #fff3b0;
   }
-
+  .text-container:hover {
+    color: #ffb347;
+    text-shadow: 0 0 12px #fff3b0, 0 0 20px #ffdf7e;
+    cursor: pointer;
+  }
   /* Nút replay */
   #replayBtn {
     padding: 10px 20px;
