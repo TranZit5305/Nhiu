@@ -38,4 +38,3 @@
     requestAnimationFrame(animateSnow);
   }
 
-window.addEventListener("resize", initSnow);

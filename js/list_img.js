@@ -61,7 +61,7 @@ function showStackedImages() {
         const img = document.createElement("img");
         img.src = imageList[i];
         img.className = "floating-img"; // ✅ dùng class để apply CSS media queries
-
+        img.style.zIndex = i+10;
         const maxX = containerWidth - imageSize;
         const maxY = containerHeight - imageSize;
         const x = Math.random() * maxX;
@@ -76,12 +76,12 @@ function showStackedImages() {
 
         setTimeout(() => {
             img.style.opacity = "1";
-        }, i * 500); // nhanh hơn một chút
+        }, i * 800); // nhanh hơn một chút
     }
 
     setTimeout(() => {
         closeBtnImg.style.display = "block";
-    }, totalImages * 500);
+    }, totalImages * 800);
 }
 closeBtnImg.onclick = () => {
   imageStack.style.display = "none";
