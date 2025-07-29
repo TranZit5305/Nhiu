@@ -312,7 +312,7 @@ body{
   opacity: 0;
 }
 #closeBtnImg {
-  display: none;
+  display: noe;
   position: absolute;
   top: -10px;
   right: -10px;
@@ -345,15 +345,28 @@ body{
       font-size: 20px;
     }
   }
-  @media (max-width: 500px) {
-  #imageStack {
-    width: 200px;
-    height: 200px;
-  }
+ @media (max-width: 500px) {
+    #imageStack {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+    }
 
-  #imageStack img {
-    width: 60px;
-    height: 60px;
-  }
-}
+    #imageStack img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
+    #closeBtnimg {
+      top: 5px;
+      right: 5px;
+      padding: 4px 8px;
+      font-size: 14px;
+    }
+  }

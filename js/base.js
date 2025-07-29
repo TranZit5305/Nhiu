@@ -1,4 +1,4 @@
-  const text = "Chào bạn, đây là web do THV làm";
+  const text = "Chào bạn, chúc bạn sẽ xem video vui vẻ nhóoo!";
   const container = document.querySelector(".text-container");
   const video = document.getElementById("myVideo");
   const replayBtn = document.getElementById("replayBtn");
@@ -11,13 +11,12 @@
   let count_end = 1,count_value =0;
   // JavaScript
   function showCustomAlert() {
-    
-    audio.play();
     document.getElementById('customAlert').style.display = 'block';
   }
 
   function closeAlert() {
     document.getElementById('customAlert').style.display = 'none';
+    audio.play();
     showStackedImages();
 
   }
