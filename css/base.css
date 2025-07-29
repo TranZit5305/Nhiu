@@ -287,32 +287,32 @@ body{
       color: white;
       font-size: 16px;
     }
-    #imageStack {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  overflow: hidden;
-}
+  #imageStack {
+    display: none;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 300px;
+    height: 90vw;
+    max-height: 300px;
+    background: linear-gradient(145deg, #1f1c2c, #2d2b40);
+    border-radius: 20px;
+    overflow: hidden; /* ✅ Không cho ảnh tràn ra ngoài */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
 
-#imageStack img {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.6s ease;
-  opacity: 0;
-}
+  #imageStack img.floating-img {
+    position: absolute;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
 #closeBtnImg {
-  display: noe;
+  display: none;
   position: absolute;
   top: -10px;
   right: -10px;
@@ -345,28 +345,14 @@ body{
       font-size: 20px;
     }
   }
- @media (max-width: 500px) {
-    #imageStack {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px;
-    }
-
-    #imageStack img {
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    #closeBtnimg {
-      top: 5px;
-      right: 5px;
-      padding: 4px 8px;
-      font-size: 14px;
-    }
+@media (max-width: 500px) {
+  #imageStack {
+    width: 220px;
+    height: 220px;
   }
+
+  #imageStack img.floating-img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+}

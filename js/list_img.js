@@ -36,33 +36,39 @@ const imageList = [
 ];
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
-function showStackedImages() {
-  const container = document.getElementById("imageStack");
-  container.style.display = "block";
+function showStackedImages() {   
+    const container = document.getElementById("imageStack");
+    container.style.display = "block";  
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+    
+    const imageSize = containerWidth * 0.23; // 23% khung, để có khoảng trống
+    
+    for (let i = 0; i < totalImages; i++) {
+        const img = document.createElement("img");
+        img.src = imageList[i];
+        img.className = "floating-img"; // ✅ dùng class để apply CSS media queries
 
-  for (let i = 0; i < totalImages; i++) {
-    const img = document.createElement("img");
-    img.src = imageList[i];
+        const maxX = containerWidth - imageSize;
+        const maxY = containerHeight - imageSize;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
 
-    // Random vị trí trong khung 300x300
-    const maxX = 300 - 80; // trừ kích thước ảnh
-    const maxY = 300 - 80;
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+        img.style.left = `${x}px`;
+        img.style.top = `${y}px`;
+        img.style.width = `${imageSize}px`;
+        img.style.height = `${imageSize}px`;
 
-    img.style.left = `${x}px`;
-    img.style.top = `${y}px`;
+        container.appendChild(img);
 
-    container.appendChild(img);
+        setTimeout(() => {
+            img.style.opacity = "1";
+        }, i * 400); // nhanh hơn một chút
+    }
 
-    // Delay để hiện từng ảnh
     setTimeout(() => {
-      img.style.opacity = "1";
-    }, i * 800);
-  }
-  setTimeout(() => {
-    closeBtnImg.style.display = "block";
-  }, totalImages * 400);
+        closeBtnImg.style.display = "block";
+    }, totalImages * 400);
 }
 closeBtnImg.onclick = () => {
   imageStack.style.display = "none";
