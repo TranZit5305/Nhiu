@@ -30,7 +30,18 @@
   }
   function loinoidau(){
     alert("Cảm ơn bạn Chút đã vào đây,cảm ơn bạn rất nhiều ,mong bạn sẽ xem hết video nhé :>");
-  }
+  // }
+  // //let timeout;
+  // function resetTimer() {
+  //   clearTimeout(timeout);
+  //   timeout = setTimeout(() => {
+  //     sessionStorage.setItem("isLoggedIn", "false");
+  //     window.location.href = "index.html";
+  //   }, 2 * 60 * 1000); // 2 phút không hoạt động
+  // }
+  // ["click", "mousemove", "keydown"].forEach(evt =>
+  //   document.addEventListener(evt, resetTimer)
+  // );
   // Xử lý video
   video.addEventListener("play", () => {
   if (!audio.paused) {
@@ -77,6 +88,7 @@
     typeLetter();
     initSnow();
     animateSnow();
+    // resetTimer();
   }
   // Ngăn chuột phải
   // document.addEventListener("contextmenu", e => e.preventDefault());
@@ -92,5 +104,17 @@
     window.onload = () => {
       setTimeout(showCustomAlert, 200);
     };
-    
+    // return lai trang khi tab trang khac
+  // document.addEventListener("visibilitychange", () => {
+  // if (document.visibilityState === "hidden") {
+  //     sessionStorage.setItem("isLoggedIn", "false");
+  //     window.location.href = "../html/login.html"; // hoặc location.reload();
+  //   }
+  // });
+
+  window.addEventListener("pagehide", () => {
+    sessionStorage.setItem("isLoggedIn", "false");
+    window.location.href = "../html/login.html";
   });
+  
+});
