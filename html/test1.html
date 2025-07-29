@@ -1,42 +1,34 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Gửi dữ liệu lên Google Sheets</title>
-</head>
-<body>
-  <form id="myForm">
-    <input type="text" name="name" placeholder="Họ tên" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <button type="submit">Gửi</button>
-  </form>
+<form id="myForm">
+  <input type="text" name="name" placeholder="Tên" required>
+  <input type="text" name="message" placeholder="Tin nhắn" required>
+  <button type="submit">Gửi</button>
+</form>
 
-  <script>
-    const form = document.getElementById('myForm');
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    message: form.message.value
+  };
 
-      const formData = new FormData(form);
-      const data = new URLSearchParams(formData);
-
-      // Thay URL dưới đây bằng URL của Web App bạn đã DEPLOY
-      const url = "https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec"
-
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          body: data,
-        });
-
-        const result = await response.json();
-        console.log(result);
-        alert('Đã gửi dữ liệu thành công!');
-      } catch (err) {
-        console.error(err);
-        alert('Lỗi khi gửi dữ liệu!');
-      }
-    });
-  </script>
-</body>
-</html>
+  fetch("https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log("Success:", result);
+    alert("Đã gửi thành công!");
+  })
+  .catch(error => {
+    console.error("Lỗi:", error);
+    alert("Lỗi gửi dữ liệu");
+  });
+});
+</script>
