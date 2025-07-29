@@ -1,4 +1,4 @@
-  const text = "Chào bạn, đây là hiệu ứng hiện từng chữ!";
+  const text = "Chào bạn, đây là web do THV làm";
   const container = document.querySelector(".text-container");
   const video = document.getElementById("myVideo");
   const replayBtn = document.getElementById("replayBtn");
@@ -11,13 +11,17 @@
   let count_end = 1,count_value =0;
   // JavaScript
   function showCustomAlert() {
+    
+    audio.play();
     document.getElementById('customAlert').style.display = 'block';
   }
 
   function closeAlert() {
     document.getElementById('customAlert').style.display = 'none';
-    Start();
+    showStackedImages();
+
   }
+
   // Gõ từng chữ
   function typeLetter() {
     if (index < text.length) {
@@ -69,8 +73,7 @@
     }
   });
   function Start(){// Hiện trang
-    
-    audio.play();
+  
     pageContent.style.display = "flex";
     typeLetter();
     initSnow();
