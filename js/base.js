@@ -48,12 +48,12 @@
     audio.pause(); // Tắt nhạc khi video phát
   }
 });
-  btnMusic.addEventListener("click", () => {
-  if (audio.volume === 0) {
-    audio.volume = 1; // Đặt âm lượng nhạc nền
+ btnMusic.addEventListener("click", () => {
+  if (audio.muted) {
+    audio.muted = false;
     btnMusic.textContent = "Nhạc nền 🎵";
   } else {
-    audio.volume = 0;
+    audio.muted = true;
     btnMusic.textContent = "Nhạc nền 🔇";
   }
 });
