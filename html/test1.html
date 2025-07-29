@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi dữ liệu lên Google Sheets</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" name="name" placeholder="Họ tên" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Gửi</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = new URLSearchParams(formData);
+
+      // Thay URL dưới đây bằng URL của Web App bạn đã DEPLOY
+      const url = "https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec"
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: data,
+        });
+
+        const result = await response.json();
+        console.log(result);
+        alert('Đã gửi dữ liệu thành công!');
+      } catch (err) {
+        console.error(err);
+        alert('Lỗi khi gửi dữ liệu!');
+      }
+    });
+  </script>
+</body>
+</html>
