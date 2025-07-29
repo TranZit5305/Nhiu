@@ -1,42 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Gửi dữ liệu đến Google Apps Script</title>
+  <meta charset="UTF-8" />
+  <title>Form gửi đến Google Apps Script</title>
 </head>
 <body>
-  <h2>Gửi dữ liệu bằng Fetch</h2>
-  <button id="sendBtn">Gửi dữ liệu</button>
+  <h2>Gửi thông tin</h2>
+  <form action="https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec" method="post">
+    <label for="name">Tên:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-  <script>
-    const URL = "https://script.google.com/macros/s/AKfycbxYIMEfFzE0pjbyV5HhtLJ2nCxg9tOav2R4di5VqwjhgqQ_ooOvTMa2lT4Y3cyB91xSkg/exec"; // Thay bằng URL của bạn
+    <label for="age">Tuổi:</label>
+    <input type="number" id="age" name="age" required><br><br>
 
-    document.getElementById("sendBtn").addEventListener("click", () => {
-      fetch(URL, {
-        method: "POST",
-        mode: "cors", // quan trọng
-        cache: "no-cache",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: "Kido",
-          age: 20
-        })
-      })
-      .then(response => {
-        if (!response.ok) throw new Error("❌ Không kết nối được với server");
-        return response.text();
-      })
-      .then(data => {
-        console.log("✅ Server response:", data);
-        alert("Thành công: " + data);
-      })
-      .catch(err => {
-        console.error("❌ Lỗi khi gửi:", err);
-        alert("Lỗi khi gửi: " + err.message);
-      });
-    });
-  </script>
+    <button type="submit">Gửi</button>
+  </form>
 </body>
 </html>
