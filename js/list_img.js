@@ -68,7 +68,8 @@ img_right.addEventListener("click", () => {
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
 function showStackedImages() {   
-    const container = document.getElementById("imageSta
+    const container = document.getElementById("imageStack");
+    container.innerHTML = ""; // Xóa nội dung cũ
     container.style.display = "block";  
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
