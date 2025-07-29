@@ -14,25 +14,25 @@ const imageList = [
     "../img/list_img/img0.png",
     "../img/list_img/img.png",
     "../img/list_img/img3.png",
-    "../img/list_img/img15.jpg",
     "../img/list_img/img16.jpg",
     "../img/list_img/img19.jpg",
-    "../img/list_img/img20.jpg",
     "../img/list_img/img2.png",
     "../img/list_img/img21.jpg",
+    "../img/list_img/img28.jpg",
     "../img/list_img/img22.jpg",
     "../img/list_img/img23.jpg",
     "../img/list_img/img24.jpg",
     "../img/list_img/img17.png",
     "../img/list_img/img25.jpg",
+    "../img/list_img/img31.jpg",
+    "../img/list_img/img20.jpg",
     "../img/list_img/img26.jpg",
     "../img/list_img/img42.jpg",
     "../img/list_img/img27.jpg",
-    "../img/list_img/img28.jpg",
     "../img/list_img/img29.jpg",
     "../img/list_img/img30.jpg",
-    "../img/list_img/img31.jpg",
     "../img/list_img/img32.jpg",
+    "../img/list_img/img15.jpg",
     "../img/list_img/img33.jpg",
     "../img/list_img/img3.png",
     "../img/list_img/img34.jpg",
@@ -47,10 +47,30 @@ const imageList = [
     "../img/list_img/img43.png",
     "../img/list_img/img44.png",
 ];
+// Hàm kiểm tra thiết bị có phải là mobile không
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+  // quan li hien anh phai trai
+const img_left = document.getElementById("img_left");
+const img_right = document.getElementById("img_right");
+let img_left_index = 1;
+img_left.addEventListener("click", () => {
+    img_left.src = `../img/imgleft/img${img_left_index}.png`;
+    img_left_index = (img_left_index + 1) % 2;
+});
+let img_right_index = 0;
+img_right.addEventListener("click", () => {
+    img_right.src = `../img/imgright/img${img_right_index}.png`;
+    img_right_index = (img_right_index + 1) % 2;
+});
+
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
 function showStackedImages() {   
     const container = document.getElementById("imageStack");
+    
+        closeBtnImg.style.display = "block";
     container.style.display = "block";  
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
@@ -88,7 +108,4 @@ closeBtnImg.onclick = () => {
   closeBtnImg.style.display = "none";
   Start();
 };  
-  // Hàm kiểm tra thiết bị có phải là mobile không
-  function isMobileDevice() {
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
+  
