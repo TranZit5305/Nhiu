@@ -1,7 +1,5 @@
 const imageList = [
     "../img/list_img/img1.png",
-    "../img/list_img/img2.png",
-    "../img/list_img/img3.png",
     "../img/list_img/img4.png",
     "../img/list_img/img5.png",
     "../img/list_img/img6.jpg",
@@ -18,21 +16,35 @@ const imageList = [
     "../img/list_img/img3.png",
     "../img/list_img/img15.jpg",
     "../img/list_img/img16.jpg",
-    "../img/list_img/img17.png",
-    "../img/list_img/img18.png",
     "../img/list_img/img19.jpg",
     "../img/list_img/img20.jpg",
+    "../img/list_img/img2.png",
     "../img/list_img/img21.jpg",
     "../img/list_img/img22.jpg",
     "../img/list_img/img23.jpg",
     "../img/list_img/img24.jpg",
+    "../img/list_img/img17.png",
     "../img/list_img/img25.jpg",
     "../img/list_img/img26.jpg",
+    "../img/list_img/img42.jpg",
     "../img/list_img/img27.jpg",
     "../img/list_img/img28.jpg",
     "../img/list_img/img29.jpg",
     "../img/list_img/img30.jpg",
     "../img/list_img/img31.jpg",
+    "../img/list_img/img32.jpg",
+    "../img/list_img/img33.jpg",
+    "../img/list_img/img3.png",
+    "../img/list_img/img34.jpg",
+    "../img/list_img/img35.jpg",
+    "../img/list_img/img36.jpg",
+    "../img/list_img/img37.jpg",
+    "../img/list_img/img38.jpg",
+    "../img/list_img/img39.jpg",
+    
+    "../img/list_img/img18.png",
+    "../img/list_img/img40.jpg",
+    "../img/list_img/img41.jpg",
 ];
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
@@ -63,12 +75,12 @@ function showStackedImages() {
 
         setTimeout(() => {
             img.style.opacity = "1";
-        }, i * 400); // nhanh hơn một chút
+        }, i * 500); // nhanh hơn một chút
     }
 
     setTimeout(() => {
         closeBtnImg.style.display = "block";
-    }, totalImages * 400);
+    }, totalImages * 500);
 }
 closeBtnImg.onclick = () => {
   imageStack.style.display = "none";

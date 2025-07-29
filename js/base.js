@@ -15,8 +15,8 @@
   }
 
   function closeAlert() {
-    document.getElementById('customAlert').style.display = 'none';
     audio.play();
+    document.getElementById('customAlert').style.display = 'none';
     showStackedImages();
 
   }
@@ -90,7 +90,7 @@
     pageContent.style.display = "none";
     // loinoidau();
     window.onload = () => {
-      setTimeout(showCustomAlert, 1000);
+      setTimeout(showCustomAlert, 500);
     };
     
   });
