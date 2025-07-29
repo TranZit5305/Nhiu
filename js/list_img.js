@@ -68,9 +68,7 @@ img_right.addEventListener("click", () => {
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
 function showStackedImages() {   
-    const container = document.getElementById("imageStack");
-    
-        closeBtnImg.style.display = "block";
+    const container = document.getElementById("imageSta
     container.style.display = "block";  
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
