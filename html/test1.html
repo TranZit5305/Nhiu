@@ -1,26 +1,49 @@
-<form id="myForm">
-  <input name="Name" placeholder="Tên của bạn" required>
-  <!-- KHÔNG có input name="Email" -->
-  <button type="submit">Gửi</button>
-</form>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gửi Dữ Liệu</title>
+</head>
+<body>
+  <form id="myForm">
+    <input name="Name" placeholder="Tên" required><br>
+    <input name="Message" placeholder="Nội dung" required><br>
+    <input name="Date" type="date" required><br>
+    <button type="submit">Gửi</button>
+  </form>
 
-<script>
-  const form = document.getElementById("myForm");
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const queryString = new URLSearchParams(formData).toString();
+      const name = this.elements["Name"].value.trim();
+      const message = this.elements["Message"].value.trim();
+      const date = this.elements["Date"].value;
 
-    fetch("https://script.google.com/macros/s/AKfycbx.../exec", {
-      method: "POST",
-      body: queryString,
-      headers: { "Content-Type": "application/x-www-form-urlencoded" }
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.result === "success") alert("Gửi thành công!");
-      else alert("Lỗi: " + data.error);
+      const combined = `Tên: ${name} | Nội dung: ${message} | Ngày: ${date}`;
+
+      const formData = new URLSearchParams();
+      formData.append("Combined", combined);
+
+      fetch("https://script.google.com/macros/s/AKfycbxxxxxxxxxxxx/exec", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.result === "success") {
+          alert("Gửi thành công!");
+          document.getElementById("myForm").reset();
+        } else {
+          alert("Gửi thất bại: " + data.error);
+        }
+      })
+      .catch(err => alert("Lỗi kết nối: " + err));
     });
-  });
-</script>
+  </script>
+</body>
+</html>
