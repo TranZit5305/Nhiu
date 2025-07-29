@@ -54,8 +54,8 @@ const imageList = [
   // quan li hien anh phai trai
 const img_left = document.getElementById("img_left");
 const img_right = document.getElementById("img_right");
-let img_left_index = 0;
-let img_right_index = 0;
+let img_left_index = 1;
+let img_right_index = 1;
 img_left.addEventListener("click", () => {
     img_left.src = `../img/imgleft/img${img_left_index}.png`;
     img_left_index = (img_left_index + 1) % 2;

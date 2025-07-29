@@ -31,6 +31,7 @@
   function loinoidau(){
     alert("Cảm ơn bạn Chút đã vào đây,cảm ơn bạn rất nhiều ,mong bạn sẽ xem hết video nhé :>");
   }
+  
   //let timeout;
   // function resetTimer() {
   //   clearTimeout(timeout);
@@ -83,7 +84,7 @@
     }
   });
   OnloadbtnMusic = () => {
-    if(audio.muted){g
+    if(audio.muted){
       btnMusic.textContent = "Nhạc nền 🔇";
     } else  {
       btnMusic.textContent = "Nhạc nền 🎵";
