@@ -1,37 +1,26 @@
-<form 
-  method="POST" 
-  action="https://script.google.com/macros/s/AKfycbwfYry0osmcjsGyhi1rIoaVNMd8P8nxAYXCNXki3HlOsCdt-FSZ76-kuUDh14oAPkS1/exec"
->
-  <input name="Email" type="email" placeholder="Email" required>
-  <input name="Name" type="text" placeholder="Name" required>
-  <button type="submit">Send</button>
+<form id="myForm">
+  <input name="Name" placeholder="Tên của bạn" required>
+  <!-- KHÔNG có input name="Email" -->
+  <button type="submit">Gửi</button>
 </form>
 
 <script>
-document.getElementById("myForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  const form = document.getElementById("myForm");
 
-  const form = e.target;
-  const data = {
-    name: form.name.value,
-    message: form.message.value
-  };
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const queryString = new URLSearchParams(formData).toString();
 
-  fetch("https://script.google.com/macros/s/AKfycbyV7ZOnEHgxj6utIuib_nA-xKhamqAHjG2sO168UEYAw6pzMN69q33Dn7hD9tb9apGLOA/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => response.json())
-  .then(result => {
-    console.log("Success:", result);
-    alert("Đã gửi thành công!");
-  })
-  .catch(error => {
-    console.error("Lỗi:", error);
-    alert("Lỗi gửi dữ liệu");
+    fetch("https://script.google.com/macros/s/AKfycbx.../exec", {
+      method: "POST",
+      body: queryString,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" }
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.result === "success") alert("Gửi thành công!");
+      else alert("Lỗi: " + data.error);
+    });
   });
-});
 </script>
