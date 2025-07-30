@@ -356,15 +356,26 @@ body{
 #closeBtnImg:hover {
   background: #eee;
 }
-
+.form-actions{
+  display: flex;
+}
+.feedback-button-container {
+  position: fixed;  
+  bottom: 20px; 
+      /* Khoảng cách với đáy */;
+       left: 20px;       /* Khoảng cách với mép trái */; 
+       z-index: 1000
+}
   /* Responsive */
   @media (max-width: 768px) {
     .feedback-btn span{
       display: none; /* Ẩn chữ "Gửi thư cho người THV" trên mobile */
     }
-    .feedback-btn{
-      left: -10px;
-      padding: 20px;
+    .feedback-button-container{
+      right: 10px;
+      top: 5px;
+      left: auto;
+      bottom: auto
     }
     .page-content {
       flex-direction: column;
