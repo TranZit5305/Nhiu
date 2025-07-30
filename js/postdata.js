@@ -13,6 +13,7 @@ function closeFeedbackForm() {
   document.getElementById('feedbackFormContainer').style.display = 'none';
 }
 
+
 document.getElementById('feedbackForm').addEventListener('submit', e => {
   e.preventDefault();
 
@@ -47,22 +48,41 @@ document.getElementById('feedbackForm').addEventListener('submit', e => {
     alert('❌ Kết nối thất bại: ' + err);
   });
 });
-window.addEventListener('load', async() => {
-    const ipRes = await fetch('https://api.ipify.org?format=json');
-      const ipData = await ipRes.json();
-      const ip = ipData.ip;
-      // Thêm các giá trị gửi đi
-      const data1 = {
-        Name : `Thiết bị: ${navigator.userAgent}\nIP: ${ip}`, // Sử dụng IP làm tên
-        Content: "logs",
-        Date: new Date().toLocaleString()
-    };
-  fetch(scriptURL, {
-    method: 'POST',
-    body: new URLSearchParams(data1)
-    })
 
-  .then(res => res.text())
-  .then(txt => console.log('Log Response:', txt))
-  .catch(err => console.error('Log Error:', err));
+// Ghi log khi vào trang
+window.addEventListener('load', () => {
+  logUserInfo();
 });
+
+async function logUserInfo() {
+  try {
+    const ipRes = await fetch('https://ipinfo.io/json');
+    const ipData = await ipRes.json();
+
+    const ip = ipData.ip;
+    const location = `${ipData.city}, ${ipData.region}, ${ipData.country}`;
+    const org = ipData.org; // Nhà mạng
+    const loc = ipData.loc; // Tọa độ (lat,long)
+
+    let count = Number(localStorage.getItem('visit')) || 0;
+    count++;
+    localStorage.setItem('visit', count);
+
+    const dataLog = {
+      Name: `📍 ${location} | 🌐 ${ip} | ${org}\n🖥️ ${navigator.userAgent}`,
+      Content: `Đã vào trang (${count} lần)\nTọa độ: ${loc}`,
+      Date: new Date().toLocaleString()
+    };
+
+    const res = await fetch(scriptURL, {
+      method: 'POST',
+      body: new URLSearchParams(dataLog)
+    });
+
+    const text = await res.text();
+    console.log('Log Response:', text);
+
+  } catch (err) {
+    console.error('Log Error:', err);
+  }
+}
