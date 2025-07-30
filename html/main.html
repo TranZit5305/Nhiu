@@ -83,30 +83,30 @@
   </footer>
   <!-- Chữ ký -->
   <div class="signature"><p>— KIDO —</p></div>
-<div id="feedbackFormContainer" class="feedback-form">
-  <h3>💌 Gửi lời nhắn</h3>
-  <form id="feedbackForm">
-    <label for="Name">Tên của bạn</label>
-    <input type="text" id="Name" name="Name" placeholder="Nhập tên..." required>
+    <div id="feedbackFormContainer" class="feedback-form">
+    <h3>💌 Gửi lời nhắn</h3>
+    <form id="feedbackForm">
+      <label for="Name">Tên của bạn</label>
+      <input type="text" id="Name" name="Name" placeholder="Nhập tên..." required>
 
-    <label for="Content">Nội dung</label>
-    <textarea id="Content" name="Content" placeholder="Viết gì đó..." required></textarea>
-    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
-      <div class="spinner"></div>
-      <span>Đang gửi...⏳</span>
-    </div>
-    <div class="form-actions">
-      <button type="submit">📨 Gửi</button>
-      <button type="button" onclick="closeFeedbackForm()" class ="btn-cancel">❌ Đóng</button>
-    </div>
+      <label for="Content">Nội dung</label>
+      <textarea id="Content" name="Content" placeholder="Viết gì đó về cảm xúc của bạn đi" required></textarea>
+      <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <span>Đang gửi...⏳</span>
+      </div>
+      <div class="form-actions">
+        <button type="submit">📨 Gửi</button>
+        <button type="button" onclick="closeFeedbackForm()" class ="btn-cancel">❌ Đóng</button>
+      </div>
 
-  </form>
-</div>
-<div class="feedback-button-container">
-  <button onclick="openFeedbackForm()" class="feedback-btn">
-    💌 <span>Gửi thư cho THV</span>
-  </button>
-</div>
+    </form>
+  </div>
+  <div class="feedback-button-container">
+    <button onclick="openFeedbackForm()" class="feedback-btn">
+      💌 <span>Gửi thư cho THV</span>
+    </button>
+  </div>  
    <script src="../js/base.js"></script>
   <script src="../js/snow.js"></script>
   <script src="../js/list_img.js"></script>
