@@ -46,6 +46,13 @@ const imageList = [
     "../img/list_img/img41.jpg",
     "../img/list_img/img43.png",
     "../img/list_img/img44.png",
+    "../img/list_img/img45.png",
+    "../img/list_img/img46.png",
+    "../img/list_img/img47.png",
+    "../img/list_img/img48.png",
+    "../img/list_img/img49.png",
+    "../img/list_img/img50.png",
+    "../img/list_img/img51.png",
 ];
 // Hàm kiểm tra thiết bị có phải là mobile không
   function isMobileDevice() {
@@ -64,7 +71,12 @@ img_right.addEventListener("click", () => {
     img_right.src = `../img/imgright/img${img_right_index}.png`;
     img_right_index = (img_right_index + 1) % 2;
 });
-
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Đảo vị trí
+  }
+}
 const totalImages = imageList.length;
 const closeBtnImg = document.getElementById("closeBtnImg");
 function showStackedImages() {   
@@ -72,15 +84,20 @@ function showStackedImages() {
     container.style.display = "block";  
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
-    
-    const imageSize = containerWidth * 0.25; // 25% khung, để có khoảng trống
-    
+
+    // 🔀 Shuffle imageList để ảnh hiển thị ngẫu nhiên mỗi lần
+    const shuffledImages = [...imageList]; // copy để không thay đổi gốc
+    shuffleArray(shuffledImages);
+
+    const imageSize = containerWidth * 0.25;
+
     for (let i = 0; i < totalImages; i++) {
         const img = document.createElement("img");
-        img.src = imageList[i];
+        img.src = shuffledImages[i]; // dùng mảng đã shuffle
         
-        img.className = "floating-img"; // ✅ dùng class để apply CSS media queries
-        img.style.zIndex = i+10;
+        img.className = "floating-img";
+        img.style.zIndex = i + 10;
+
         const maxX = containerWidth - imageSize;
         const maxY = containerHeight - imageSize;
         const x = Math.random() * maxX;
@@ -95,7 +112,7 @@ function showStackedImages() {
 
         setTimeout(() => {
             img.style.opacity = "1";
-        }, i * 800); // nhanh hơn một chút
+        }, i * 800);
     }
 
     setTimeout(() => {
