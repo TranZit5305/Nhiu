@@ -100,7 +100,7 @@
     OnloadbtnMusic();
   }
   // Ngăn chuột phải
-  // document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("contextmenu", e => e.preventDefault());
   document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.getItem("isLoggedIn") !== "true") {
       alert("Bạn chưa nhập mật khẩu vui lòng nhập mật khẩu....")
@@ -109,7 +109,7 @@
     }
     document.body.style.display = "block";
     pageContent.style.display = "none";
-    // loinoidau();
+    loinoidau();
     
     OnloadbtnMusic();
     window.onload = () => {
