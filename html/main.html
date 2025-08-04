@@ -21,9 +21,12 @@
 <body>
   <!-- Nhạc nền -->
   <audio id="bgMusic" loop>
-    <source src="../music/lofichill.mp3" type="audio/mpeg" />
+    <source id="audioSource" type="audio/mpeg" />
   </audio>
-  <button id="BtnMusic"> Nhạc nền 🎵</button>
+  <div id="Music_1"   style="display: flex;">
+    <button id="BtnMusic"> Nhạc nền 🎵</button>
+    <button onclick="changeMusic()">🎵 Đổi nhạc</button>
+  </div>
   <!-- Tuyết -->
   <canvas id="snow"></canvas>
   
@@ -111,6 +114,7 @@
   <script src="../js/snow.js"></script>
   <script src="../js/list_img.js"></script>
   <script src="../js/postdata.js"></script>
+  <script src="../js/music.js"></script>
 </body>
 
 </html>

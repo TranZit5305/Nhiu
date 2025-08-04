@@ -3,7 +3,7 @@
   const video = document.getElementById("myVideo");
   const replayBtn = document.getElementById("replayBtn");
   const pageContent = document.querySelector(".page-content");
-  const audio = document.getElementById("bgMusic");
+
   const btnMusic = document.getElementById("BtnMusic");
 
   let musicWasPlaying = false;
@@ -15,8 +15,10 @@
   }
 
   function closeAlert() {
+    loadMusic();
     audio.play();
     document.getElementById('customAlert').style.display = 'none';
+    alert("Chào mừng bạn đến với trang web của mình!");
     showStackedImages();
 
   }
@@ -90,6 +92,7 @@
       btnMusic.textContent = "Nhạc nền 🎵";
     }
   }
+
   function Start(){// Hiện trang
   
     pageContent.style.display = "flex";
