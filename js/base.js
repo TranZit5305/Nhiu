@@ -18,9 +18,9 @@
     loadMusic();
     audio.play();
     document.getElementById('customAlert').style.display = 'none';
-    alert("Chào mừng bạn đến với trang web của mình!");
+    alert("Vẫn còn video đăng sau cái kia nữa nhớ xem hết nhé :>")
+    alert("Nếu bạn vô trang web này xem lại lần nào nữa thì mong khi đấy bạn có thể gỡ block và nói chuyện với mình nha <3")
     showStackedImages();
-
   }
 
   // Gõ từng chữ
