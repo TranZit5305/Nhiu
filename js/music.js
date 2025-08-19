@@ -1,5 +1,6 @@
 
 const musicList = [
+"../music/1ngay.mp3",
 "../music/lofichill.mp3",
 "../music/text07-wn.mp3",
 ];
